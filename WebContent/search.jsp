@@ -188,8 +188,8 @@
 		</div>
 		<div id="block_button" style="padding: 2%;">
 			<table>
-				<td><input type="submit" name="actionMethod" value="Add New"><a
-					href="add.do"></a></td>
+				<!--viết html như thế thì làm sao mà chạy được input là input, a là a con lạy mẹ. giờ CSS cho thẻ a thành một cái button muốn biết làm sao thì lên google mà search-->
+				<td><a href="add.do">Add New</a></td>
 				<td><input type="submit" name="actionMethod" id="delete"
 					value="Delete""></td>
 			</table>
