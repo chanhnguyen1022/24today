@@ -23,8 +23,8 @@ public class RedirectAddAction extends Action {
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		EditForm editForm = new EditForm();
-    request.setAttribute("editform",editForm);
-    request.setAttribute("action","processAdd.do");
+    		request.setAttribute("editform",editForm);
+   		request.setAttribute("action","processAdd.do");
 		return mapping.findForward("add");
 
 	}
