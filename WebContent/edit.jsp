@@ -54,8 +54,8 @@
 						<td>Sex:</td>
 						<td align="left"><select name ="sex" >
 								<option value=""></option>
-								<option value="M" <%= form.getSex() = "M"? "selected":"";%>>M</option>
-								<option value="F" selected<%= form.getSex() = "F"? "selected":"";%>>F</option>
+								<option value="M" <%= form.getSex().equals("M")? "selected":"";%>>M</option>
+								<option value="F" selected<%= form.equals("F")? "selected":"";%>>F</option>
 						</select></td>
 					</tr>
 					<tr>
