@@ -174,7 +174,7 @@
 				<tr>
 					<td><input type="checkbox" value="<%=cus.getCustomer_Id()%>">
 					</td>
-					<td><a href=edit.jsp><%=cus.getCustomer_Id()%></a></td>
+					<td><a href="edit.do"><%=cus.getCustomer_Id()%></a></td>
 					<td><%=cus.getCustomer_Name()%></td>
 					<td><%=cus.getSex()%></td>
 					<td><%=cus.getBirthDay()%></td>
@@ -189,7 +189,7 @@
 		<div id="block_button" style="padding: 2%;">
 			<table>
 				<td><input type="submit" name="actionMethod" value="Add New"><a
-					href="searrch.jsp"></a></td>
+					href="add.do"></a></td>
 				<td><input type="submit" name="actionMethod" id="delete"
 					value="Delete""></td>
 			</table>
