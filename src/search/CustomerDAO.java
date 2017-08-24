@@ -60,7 +60,7 @@ public class CustomerDAO {
 		statement.executeUpdate("DELETE FROM MSTCUSTOMER WHERE CUSTOMER_ID="+i);
 	}
 	public boolean EditCustomer(EditForm ef) throws SQLException {
-		String sql = "UPDATE MSTCUSTOMER SET CUSTOMER_NAME=?, SEX=?, BIRTHDAY=?, ADDRESS=?, EMAIL=?, INSERT_YMD=?, INSERT_PSN_CD=?, UPDATE_PSN_CD=? WHERE CUSTOMERID=?";
+		String sql = "UPDATE MSTCUSTOMER SET CUSTOMER_NAME=?, SEX=?, BIRTHDAY=?, ADDRESS=?, EMAIL=?, INSERT_YMD=?, INSERT_PSN_CD=?, UPDATE_PSN_CD=? WHERE USERID=?";
 		PreparedStatement ud = connectDB.getConnection().prepareStatement(sql);
 		try {
 			ud.setString(1, ef.getCustomerName());
@@ -71,7 +71,7 @@ public class CustomerDAO {
 			ud.setDate(6, java.sql.Date.valueOf(new Date().toString()));
 			ud.setInt(7, ef.getInsertPSN());
 			ud.setInt(8, ef.getUpdatePSN());
-			ud.setInt(9, ef.getCustomerId());
+			ud.setInt(9, ef.getUserid());
 			int executeUpdate = ud.executeUpdate();
 			if (executeUpdate > 0) {
 				check = true;
