@@ -16,7 +16,11 @@
 <script src="jquery.jtable.js" type="text/javascript"></script>
 </head>
 <body bgcolor="CCFFFF">
-<form action="edit.do" method="post" id="editForm"
+<%
+	EditForm form = (EditForm) request.getAttribute("editForm");
+	String action = (String) request.getAttribute("action");
+%>
+<form action="<%=action%>" method="post" id="editForm"
 					name="Form">
 	<div
 		style="width: 60%; margin-right: 20%; margin-left: 20%; text-align: center;">
@@ -40,23 +44,23 @@
 				<table >
 					<tr>
 						<td>Customer Id:</td>
-						<td align="left" ><b>13130005</b></td>
+						<td align="left" ><b><%=form.getUserid();%></b><input type="hidden" name="customerName" value="<%=form.getUserid();%>"></td>
 					</tr>
 					<tr>
 						<td>Customer Name:</td>
-						<td><input type="text" size="42%" name="customerName"></td>
+						<td><input type="text" size="42%" name="customerName" value="<%=form.getCustomerName();%>"></td>
 					</tr>
 					<tr>
-						<td name="sex">Sex:</td>
-						<td align="left"><select >
+						<td>Sex:</td>
+						<td align="left"><select name ="sex" >
 								<option value=""></option>
-								<option value="M">M</option>
-								<option value="F">F</option>
+								<option value="M" <%= form.getSex() = "M"? "selected":"";%>>M</option>
+								<option value="F" selected<%= form.getSex() = "F"? "selected":"";%>>F</option>
 						</select></td>
 					</tr>
 					<tr>
 						<td>Birthday:</td>
-						<td><input type="text" size="42%" name="birthday"></td>
+						<td><input type="text" size="42%"  name="birthday" value="<%=form.getBirthday();%>"></td>
 					</tr>
 					<tr>
 						<td>Email:</td>
@@ -64,7 +68,7 @@
 					</tr>
 					<tr>
 						<td>Address:</td>
-						<td><input type="text" style="padding: 7%;" size="35%;" name="address"></td>
+						<td><input type="text" style="padding: 7%;" size="35%;" name="address" value="<%=form.getAddress();%>"></td>
 					</tr>
 					<tr>
 						<td></td>
