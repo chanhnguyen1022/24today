@@ -60,7 +60,7 @@ public class CustomerDAO {
 		statement.executeUpdate("DELETE FROM MSTCUSTOMER WHERE CUSTOMER_ID="+i);
 	}
 	public boolean EditCustomer(EditForm ef) throws SQLException {
-		String sql = "SELECT * FROM MSTCUSTOMER WHERE CUSTOMER_ID=?";
+		String sql = "UPDATE MSTCUSTOMER SET CUSTOMER_NAME=?, SEX=?, BIRTHDAY=?, ADDRESS=?, EMAIL=?, INSERT_YMD=?, INSERT_PSN_CD=?, UPDATE_PSN_CD=?";
 		PreparedStatement ud = connectDB.getConnection().prepareStatement(sql);
 
 		ResultSet rs = ud.executeQuery();
@@ -107,10 +107,9 @@ public class CustomerDAO {
 	}
 
 	public int getPSNCDbyUsername(String customername) throws SQLException {
-		UserLoginForm form = new UserLoginForm();
-		String get = "SELECT*FROM MSTUSER WHERE USERID= '" + form.getUserId() + "'";
-		PreparedStatement ud = connectDB.getConnection().prepareStatement(get);
-		ResultSet rs = ud.executeQuery(get);
+		String get = "SELECT*FROM MSTUSER WHERE USERID= '" + customername + "'";
+		Statement statement = connectDB.getConnection().createStatement();
+		ResultSet rs = statement.executeQuery(get);
 		return rs.getInt("PSN_CD");
 
 	}
