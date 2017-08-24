@@ -62,8 +62,6 @@ public class CustomerDAO {
 	public boolean EditCustomer(EditForm ef) throws SQLException {
 		String sql = "UPDATE MSTCUSTOMER SET CUSTOMER_NAME=?, SEX=?, BIRTHDAY=?, ADDRESS=?, EMAIL=?, INSERT_YMD=?, INSERT_PSN_CD=?, UPDATE_PSN_CD=?";
 		PreparedStatement ud = connectDB.getConnection().prepareStatement(sql);
-
-		ResultSet rs = ud.executeQuery();
 		try {
 			ud.setString(1, ef.getCustomerName());
 			ud.setString(2, ef.getSex());
