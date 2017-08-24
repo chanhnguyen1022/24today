@@ -24,13 +24,14 @@ public class EditAction extends Action {
 			throws Exception {
 		HttpSession session = request.getSession();
 		CustomerDAO dao=new CustomerDAO();
+		int id = Integer.parseInt(request.getParameter("id"));
 		String name=(String) session.getAttribute("username");
 		EditForm editForm= (EditForm)form;
-		dao.EditCustomer(editForm);
 		int PSN_CD = dao.getPSNCDbyUsername(name);
 		editForm.setUpdatePSN(PSN_CD);
-	    dao.EditCustomer(editForm);
-			return mapping.findForward("search");
+		editForm.setUserid(id);
+	 	dao.EditCustomer(editForm);
+		return mapping.findForward("search");
 
 	}
 	    }
