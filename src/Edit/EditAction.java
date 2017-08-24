@@ -28,7 +28,7 @@ public class EditAction extends Action {
 		EditForm editForm= (EditForm)form;
 		dao.EditCustomer(editForm);
 		int PSN_CD = dao.getPSNCDbyUsername(name);
-		editForm.setInsertPSN(PSN_CD);
+		editForm.setUpdatePSN(PSN_CD);
 	    dao.EditCustomer(editForm);
 			return mapping.findForward("search");
 
