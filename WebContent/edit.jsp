@@ -43,10 +43,6 @@
 				
 				<table >
 					<tr>
-						<td>Customer Id:</td>
-						<td align="left" ><b><%=form.getUserid();%></b><input type="hidden" name="customerName" value="<%=form.getUserid();%>"></td>
-					</tr>
-					<tr>
 						<td>Customer Name:</td>
 						<td><input type="text" size="42%" name="customerName" value="<%=form.getCustomerName();%>"></td>
 					</tr>
