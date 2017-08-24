@@ -174,7 +174,7 @@
 				<tr>
 					<td><input type="checkbox" value="<%=cus.getCustomer_Id()%>">
 					</td>
-					<td><a href="edit.do"><%=cus.getCustomer_Id()%></a></td>
+					<td><a href="edit.do?id=<%=cus.getCustomer_Id()%>"><%=cus.getCustomer_Id()%></a></td>
 					<td><%=cus.getCustomer_Name()%></td>
 					<td><%=cus.getSex()%></td>
 					<td><%=cus.getBirthDay()%></td>
