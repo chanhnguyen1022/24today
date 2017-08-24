@@ -104,9 +104,25 @@ public class CustomerDAO {
 		}
 		return check;
 	}
+	
+	public EditForm getEditForm(int userid){
+		String get = "SELECT*FROM MSTUSER WHERE USERID= '" + userid + "'";
+		Statement statement = connectDB.getConnection().createStatement();
+		ResultSet rs = statement.executeQuery(get);
+		EditForm editForm = new EditForm();
+		while(rs.next()){
+			editForm.setUserid(rs.getInt("USERID"));
+			editForm.setCustomerName(rs.getString("CUSTOMER_NAME"));
+			editForm.setSex(rs.getString("SEX"));
+			editForm.setBirthDay(rs.getString("BIRTHDAY"));
+			editForm.setAddress(rs.getString("ADDRESS"));
+			editForm.setEmail(rs.getString("EMAIL"));
+		}
+		return editForm;
+	}
 
 	public int getPSNCDbyUsername(String customername) throws SQLException {
-		String get = "SELECT*FROM MSTUSER WHERE USERID= '" + customername + "'";
+		String get = "SELECT*FROM MSTUSER WHERE USERNAME= '" + customername + "'";
 		Statement statement = connectDB.getConnection().createStatement();
 		ResultSet rs = statement.executeQuery(get);
 		return rs.getInt("PSN_CD");
