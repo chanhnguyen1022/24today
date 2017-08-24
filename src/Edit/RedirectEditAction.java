@@ -26,7 +26,7 @@ public class RedirectEditAction extends Action {
     int id = Integer.parseInt(request.getParameter("id"));
 		EditForm editForm = dao.getEditForm(id);
     request.setAttribute("editform",editForm);
-    request.setAttribute("action","processEdit.do");
+    request.setAttribute("action","processEdit.do?id="+id);
 		return mapping.findForward("edit");
 
 	}
