@@ -28,13 +28,19 @@
 			scope="request" validate="false">
 			<forward name="result" path="/search.jsp" />
 		</action>
-		<action name="EditForm" path="/edit" type="Edit.EditAction"
+		<action name="EditForm" path="/processEdit" type="Edit.EditAction"
 			scope="request" validate="false">
 			<forward name="result" path="/search.jsp" />
 		</action>
-		<action name="EditForm" path="/edit" type="Edit.addAction"
+		<action name="EditForm" path="/processAdd" type="Edit.addAction"
 			scope="request" validate="false">
 			<forward name="result" path="/search.jsp" />
+		</action>
+		<action path="/edit" type="Edit.RedirectEditAction" scope="request">
+			<forward name="edit" path="/edit.jsp" />
+		</action>
+		<action path="/add" type="Edit.RedirectAddAction" scope="request">
+			<forward name="edit" path="/edit.jsp" />
 		</action>
 	</action-mappings>
 
