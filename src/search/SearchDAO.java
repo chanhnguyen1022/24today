@@ -19,7 +19,10 @@ public class SearchDAO {
 		List<CustomerForm> customers = new ArrayList<CustomerForm>();
 		System.out.println(searchForm.getBirthDayEnd().length());
 		StringBuffer query = new StringBuffer();
-		query.append("SELECT * FROM MSTCUSTOMER WHERE SEX = '"+searchForm.getSex()+"'");
+		query.append("SELECT * FROM MSTCUSTOMER WHERE ");
+		if(!searchForm.getSex().equals("false")){
+			query.append(" SEX = '"+searchForm.getSex()+"'");
+		}
 		if(searchForm.getCustomer_Name() != null ||
 				!searchForm.getCustomer_Name().isEmpty()|| !searchForm.equals("")){
 			query.append(" AND CUSTOMER_NAME LIKE '%"+searchForm.getCustomer_Name()+"%'");
